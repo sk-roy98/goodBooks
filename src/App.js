@@ -10,22 +10,22 @@ const bookDB = {
 
   fiction: [
     {
-      name: "Shiva Trilogy",
-      rating: "5/5"
+      name: "All The Light We Cannot See",
+      rating: "4/5"
     },
     {
-      name: "Harry Potter and the Sorcerer's Stone",
-      rating: "4.5/5"
+      name: "OneHundred Year Of Solitude",
+      rating: "3.5/5"
     }
   ],
   business: [
     {
-      name: "Never Split the Difference",
-      rating: "3.5/5"
+      name: "Good to Great",
+      rating: "4/5"
     },
     {
-      name: "Loonshots",
-      rating: "5/5"
+      name: "Influence",
+      rating: "4.5/5"
     }
   ]
 };
@@ -39,7 +39,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1> 📚 goodbooks </h1>
+      <h1> 📖 goodbooks </h1>
       <p style={{ fontSize: "small" }}>
         {" "}
         Checkout my favorite books. Select a genre to get started{" "}
@@ -63,7 +63,7 @@ export default function App() {
         ))}
       </div>
       <hr />
-      <div style={{ textAlign: "left" }}>
+      <div style={{ textAlign: "left", marginLeft: "20%" }}>
         <ul style={{ paddingInlineStart: "0" }}>
           {bookDB[selectedGenre].map((book) => (
             <li
