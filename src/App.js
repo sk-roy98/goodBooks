@@ -1,37 +1,42 @@
-import React from "react";
+mport React from "react";
 import "./styles.css";
 import { useState } from "react";
 
-const bookDB = {
-  javascript: [
-    { name: "Eloquent JavaScript", rating: "4/5" },
-    { name: "You Don't Know JS", rating: "3.5/5" }
+const showsDB = {
+  fiction: [
+    { name: "Game Of Thrones", rating: "4.6/5" },
+    { name: "Stranger Things", rating: "4.0/5" },
+    { name: "Dark", rating: "4.6/5" }
   ],
 
-  fiction: [
+  thriller: [
     {
-      name: "All The Light We Cannot See",
-      rating: "4/5"
+      name: "Breaking Bad",
+      rating: "4.8/5"
     },
     {
-      name: "OneHundred Year Of Solitude",
-      rating: "3.5/5"
+      name: "Mr. Robot",
+      rating: "3.9/5"
     }
   ],
-  business: [
+  comedy: [
     {
-      name: "Good to Great",
-      rating: "4/5"
+      name: "Friends",
+      rating: "4.5/5"
     },
     {
-      name: "Influence",
-      rating: "4.5/5"
+      name: "Silicon Valley",
+      rating: "4.3/5"
+    },
+    {
+      name: "Big Bang Theory",
+      rating: "3.8/5"
     }
   ]
 };
 
 export default function App() {
-  const [selectedGenre, setGenre] = useState("javascript");
+  const [selectedGenre, setGenre] = useState("fiction");
 
   function genreClickHandler(clickedGenre) {
     setGenre(clickedGenre);
@@ -39,22 +44,24 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1> 📖 goodbooks </h1>
-      <p style={{ fontSize: "small" }}>
-        {" "}
-        Checkout my favorite books. Select a genre to get started{" "}
-      </p>
+      <div style={{ margin: "0", border: "2px solid #1a508b" }}>
+        <h1> 🎦 goodshows </h1>
+        <p style={{ fontSize: "small" }}>
+          {" "}
+          Checkout my favorite shows. Select a genre to get started{" "}
+        </p>
+      </div>
 
-      <div>
-        {Object.keys(bookDB).map((genre) => (
+      <div style={{ background: "#1a508b" }}>
+        {Object.keys(showsDB).map((genre) => (
           <button
             onClick={() => genreClickHandler(genre)}
             style={{
               cursor: "pointer",
-              background: "#E5E7EB",
+              background: "#fff",
               borderRadius: "0.5rem",
               padding: "0.5rem  1rem",
-              border: "1px solid black",
+              border: "2px solid #0d335d",
               margin: "1rem 0.3rem"
             }}
           >
@@ -65,16 +72,18 @@ export default function App() {
       <hr />
       <div style={{ textAlign: "left", marginLeft: "20%" }}>
         <ul style={{ paddingInlineStart: "0" }}>
-          {bookDB[selectedGenre].map((book) => (
+          {showsDB[selectedGenre].map((book) => (
             <li
               key={book.name}
               style={{
+                color: "white",
+                backgroundColor: "#0d335d",
                 listStyle: "none",
                 padding: "1rem",
-                border: "1px solid #D1D5DB",
+                border: "2px solid black",
                 width: "70%",
                 margin: "1rem 0rem",
-                borderRadius: "0.5rem"
+                borderRadius: "1.5rem"
               }}
             >
               <div style={{ fontSize: "larger" }}> {book.name} </div>
